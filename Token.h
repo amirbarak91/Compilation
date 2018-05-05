@@ -1,0 +1,93 @@
+#ifndef TOKEN_H
+#define TOKEN_H
+#include <stdio.h>
+
+extern FILE *yyin, *yyout;
+
+
+
+typedef enum eTOKENS
+{
+	TOKEN_INT_NUM,
+	TOKEN_REAL_NUM,
+
+	TOKEN_ID,
+
+	TOKEN_KEYWORD_BLOCK,
+	TOKEN_KEYWORD_BEGIN,
+	TOKEN_KEYWORD_END,
+	TOKEN_KEYWORD_TYPE,
+	TOKEN_KEYWORD_IS,
+	TOKEN_KEYWORD_INTEGER,
+	TOKEN_KEYWORD_REAL,
+	TOKEN_KEYWORD_ARRAY,
+	TOKEN_KEYWORD_OF,
+	TOKEN_KEYWORD_WHEN,
+	TOKEN_KEYWORD_DO,
+	TOKEN_KEYWORD_DEFAULT,
+	TOKEN_KEYWORD_END_WHEN,
+	TOKEN_KEYWORD_FOR,
+	TOKEN_KEYWORD_END_FOR,
+	TOKEN_KEYWORD_MALLOC,
+	TOKEN_KEYWORD_SIZE_OF,
+	TOKEN_KEYWORD_FREE,
+
+	TOKEN_RELATION_OP_EQUAL,
+	TOKEN_RELATION_OP_NOT_EQUAL,
+	TOKEN_RELATION_OP_GREATER_EQUAL,
+	TOKEN_RELATION_OP_GREATER,
+	TOKEN_RELATION_OP_LESS_EQUAL,
+	TOKEN_RELATION_OP_LESS,
+
+	TOKEN_ARITMETIC_OP_PLUSE,
+	TOKEN_ARITMETIC_OP_MINUS,
+	TOKEN_ARITMETIC_OP_MUL,
+	TOKEN_ARITMETIC_OP_DIV,
+	TOKEN_ARITMETIC_OP_POWER,
+
+	TOKEN_UNARY_OP_PLUSE_PLUSE,
+	TOKEN_UNARY_OP_ADDRESS,
+
+	TOKEN_SEPARATION_SIGN_COLON,
+	TOKEN_SEPARATION_SIGN_SEMICOLON,
+	TOKEN_SEPARATION_SIGN_OPEN_PARENTHESES,
+	TOKEN_SEPARATION_SIGN_CLOSE_PARENTHESES,
+	TOKEN_SEPARATION_SIGN_OPEN_BRACKETS,
+	TOKEN_SEPARATION_SIGN_CLOSE_BRACKETS,
+
+	TOKEN_ASSIGNMENT_OP,
+	TOKEN_POINTER_IND,
+
+	TOKEN_EOF
+}eTOKENS;
+
+
+
+typedef struct Token
+{
+	eTOKENS kind;
+	char *lexeme;
+	int lineNumber;
+}Token;
+
+typedef struct Node
+{
+	Token *tokensArray;
+	struct Node *prev;
+	struct Node *next;
+} Node;
+
+void create_and_store_token(eTOKENS , char* , int );
+void print_token_message(char * , char * , int );
+void print_token_error(char * , int );
+void found_token(eTOKENS , char * , int );
+
+Token *next_token();
+Token *back_token();
+int match(eTOKENS t);
+void match_rel_op();
+void free_all_tokens();
+
+const char * getTokenNameByEnum(eTOKENS kind);
+
+#endif
