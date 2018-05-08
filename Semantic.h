@@ -1,25 +1,25 @@
 #ifndef SEMANTIC_H
 #define SEMANTIC_H
 
-typedef struct Var_Attribute {
+typedef struct Attribute {
 	char * name;
 	char * type;
 	char * subtype;
 	eROLE role;
 	eCATEGORY category;
 	unsigned int size;
-}Var_Attribute;
+}Attribute;
 
 
 typedef enum eROLE {
-	VARIABLE,
-	USER_DEFINED_TYPE
+	ROLE_VARIABLE,
+	ROLE_USER_DEFINED_TYPE
 }eROLE;
 
 typedef enum eCATEGORY {
-	BASIC,
-	ARRAY,
-	POINTER
+	CATEGORY_BASIC,
+	CATEGORY_ARRAY,
+	CATEGORY_POINTER
 }eCATEGORY;
 
 

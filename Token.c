@@ -3,18 +3,6 @@
 #include <string.h>
 #include "Token.h"
 
-
-/* This package describes the storage of tokens identified in the input text.
-* The storage is a bi-directional list of nodes.
-* Each node is an array of tokens; the size of this array is defined as TOKEN_ARRAY_SIZE.
-* Such data structure supports an efficient way to manipulate tokens.
-
-There are three functions providing an external access to the storage:
-- function create_and_store_tokens ; it is called by the lexical analyzer when it identifies a legal token in the input text.
-- functions next_token and back_token; they are called by parser during the syntax analysis (the second stage of compilation)
-*/
-
-
 #define TOKEN_ARRAY_SIZE 100
 
 Node * head;

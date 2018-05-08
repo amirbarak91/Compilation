@@ -4,9 +4,7 @@
 #include "Parsers.h"
 #include "Token.h"
 
-
 Token * tok;
-
 
 void print_rule(char * from, char * to)
 {
