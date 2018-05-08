@@ -12,6 +12,7 @@ static unsigned int ht_calc_hash(char* key)
 
 /* 	Create a hashtable with capacity 'capacity'
 and return a pointer to it*/
+
 hashtable_t* ht_create(unsigned int capacity)
 {
 	hashtable_t* hasht = malloc(sizeof(hashtable_t));

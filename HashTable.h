@@ -30,6 +30,7 @@ void* HT_ERROR = &err_ptr; // Data pointing to HT_ERROR are returned in case of 
 
 
 static unsigned int ht_calc_hash(char* key);
+
 hashtable_t* ht_create(unsigned int capacity);
 void* ht_put(hashtable_t* hasht, char* key, void* data);
 void* ht_get(hashtable_t* hasht, char* key);
