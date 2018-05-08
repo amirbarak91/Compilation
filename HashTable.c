@@ -37,7 +37,7 @@ void* HashTable_Put(hashtable_t* hasht, char* key, void* data)
 {
 	if (data == NULL)
 		return NULL;
-	unsigned int h = ht_calc_hash(key) % hasht->capacity;
+	unsigned int h = HashTable_Calc_Hash(key) % hasht->capacity;
 	hash_elem_t* e = hasht->table[h];
 
 	while (e != NULL)
@@ -69,7 +69,7 @@ void* HashTable_Put(hashtable_t* hasht, char* key, void* data)
 /* Retrieve data from the hashtable */
 void* HashTable_Get(hashtable_t* hasht, char* key)
 {
-	unsigned int h = ht_calc_hash(key) % hasht->capacity;
+	unsigned int h = HashTable_Calc_Hash(key) % hasht->capacity;
 	hash_elem_t* e = hasht->table[h];
 	while (e != NULL)
 	{
@@ -198,7 +198,7 @@ void HashTable_Clear(hashtable_t* hasht, int free_data)
 Data still stored are freed*/
 void HashTable_Destroy(hashtable_t* hasht)
 {
-	Hashtable_Clear(hasht, 1); // Delete and free all.
+	HashTable_Clear(hasht, 1); // Delete and free all.
 	free(hasht->table);
 	free(hasht);
 }
