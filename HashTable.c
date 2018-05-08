@@ -54,7 +54,7 @@ void* HashTable_Put(hashtable_t* hasht, char* key, void* data)
 	// Getting here means the key doesn't already exist
 
 	if ((e = malloc(sizeof(hash_elem_t) + strlen(key) + 1)) == NULL)
-		return HT_ERROR;
+		exit(0);
 	strcpy(e->key, key);
 	e->data = data;
 

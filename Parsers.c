@@ -4,10 +4,8 @@
 #include "Parsers.h"
 #include "Token.h"
 
+
 Token * tok;
-
-
-
 
 
 void print_rule(char * from, char * to)
@@ -28,6 +26,7 @@ void print_default_error(char * expected_kinds, Token * token,int is_only_one)
 
 void parse_PROGRAM()
 {
+	current_HashTable = NULL;
 	tok = next_token();
 
 	switch (tok->kind)
@@ -49,6 +48,15 @@ void parse_PROGRAM()
 
 void parse_BLOCK()
 {
+	hashtable_t * temp = Create_HashTable(100);
+
+	if (current_HashTable != NULL)
+	{
+		temp->parent = current_HashTable;
+	}
+
+	current_HashTable = temp;
+
 	print_rule("BLOCK","block DEFINITIONS; begin COMMANDS; end");
 	tok = next_token();
 	switch (tok->kind)
@@ -68,6 +76,9 @@ void parse_BLOCK()
 		back_token();
 
 	}
+
+	current_HashTable = current_HashTable->parent;
+	free(temp);
 }
 
 void parse_DEFINITIONS()

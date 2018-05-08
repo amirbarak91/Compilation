@@ -1,6 +1,9 @@
 #ifndef THEPARSERS_H
 #define THEPARSERS_H
 #include "Token.h"
+#include "HashTable.h"
+
+hashtable_t * current_HashTable;
 
 void parse_PROGRAM();
 void parse_BLOCK();

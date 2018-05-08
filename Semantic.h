@@ -20,7 +20,7 @@ typedef enum eCATEGORY {
 	BASIC,
 	ARRAY,
 	POINTER
-};
+}eCATEGORY;
 
 
 #endif
