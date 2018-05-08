@@ -3,6 +3,8 @@
 #include <string.h>
 #include "Parsers.h"
 #include "Token.h"
+#include "HashTable.h"
+#include "Semantic.h"
 
 Token * tok;
 
@@ -130,7 +132,6 @@ void parse_DEFENITION_HELPER()
 
 void parse_DEFENITION()
 {
-
 	tok = next_token();
 	switch (tok->kind)
 	{
@@ -138,6 +139,7 @@ void parse_DEFENITION()
 		print_rule("DEFENITION","VAR_DEFINITION");
 		back_token();
 		parse_VAR_DEFENITION();
+		
 		break;
 
 	case TOKEN_KEYWORD_TYPE:
@@ -298,7 +300,6 @@ void parse_SIZE()
 void parse_BASIC_TYPE()
 {
 	tok = next_token();
-
 	switch (tok->kind)
 	{
 	case TOKEN_KEYWORD_INTEGER:

@@ -1,16 +1,6 @@
 #ifndef SEMANTIC_H
 #define SEMANTIC_H
 
-typedef struct Attribute {
-	char * name;
-	char * type;
-	char * subtype;
-	eROLE role;
-	eCATEGORY category;
-	unsigned int size;
-}Attribute;
-
-
 typedef enum eROLE {
 	ROLE_VARIABLE,
 	ROLE_USER_DEFINED_TYPE
@@ -22,5 +12,15 @@ typedef enum eCATEGORY {
 	CATEGORY_POINTER
 }eCATEGORY;
 
+typedef struct Attribute {
+	char * name;
+	char * type;
+	char * subtype;
+	eROLE role;
+	eCATEGORY category;
+	unsigned int size;
+}Attribute;
+
+Attribute * Create_Attribute();
 
 #endif
