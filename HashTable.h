@@ -13,7 +13,6 @@ typedef struct {
 	unsigned int capacity;		// Hashtable capacity (in terms of hashed keys)
 	unsigned int e_num;			// Number of element currently stored in the hashtable
 	hash_elem_t** table;		// The table containaing elements
-	hash_elem_t** parent;		// The tables parent
 } hashtable_t;
 
 //Structure used for iterations

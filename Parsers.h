@@ -2,8 +2,10 @@
 #define THEPARSERS_H
 #include "Token.h"
 #include "HashTable.h"
+#include "Semantic.h"
 
-hashtable_t * current_HashTable;
+
+Table * current_block_table = NULL;
 
 void parse_PROGRAM();
 void parse_BLOCK();
